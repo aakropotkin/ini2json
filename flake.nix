@@ -13,5 +13,8 @@
 
     defaultPackage.x86_64-linux = self.packages.x86_64-linux.ini2json;
 
+    nixosModule = { pkgs, ... }: { nixpkgs.overlays = [self.overlay]; };
+    nixosModules.ini2json = self.nixosModule;
+
   };
 }
